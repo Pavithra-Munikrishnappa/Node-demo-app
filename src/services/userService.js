@@ -21,7 +21,7 @@ function getUserById(id) {
     return null;
   }
 
-  const address = user.profile.address; // <-- Null Pointer bug source
+  const address = user.profile ? user.profile.address : null; // FIX: guard against missing `profile`
 
   return {
     id: user.id,
